@@ -19,3 +19,6 @@ $ password == password
 ```
 There is also an integrated swagger documentation which can be reached at `http://localhost/swagger/index.html#/`.
 
+## Suggestions for improvement
+* Filtering was moved to the frontend, as `movies` are read from state.
+* A websocket connection can be also created in an event-driven fashion to have the client supplied with the latest changes and data.
