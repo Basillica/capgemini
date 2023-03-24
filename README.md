@@ -1,0 +1,21 @@
+Capgemini Challenge
+===
+## Introduction
+The backend and frontend are developed as seperate applications, running on docker containers and orchestrated using `docker-compose`.
+The backend was developed in `Go`, using the [gin](https://github.com/gin-gonic/gin) framework. The frontend is written in Typescript with the React framework.
+The backend is served beyond an nginx proxy, data is read from the provided api and stored to a mongodb database.
+
+## Running the application
+To run the application, `docker` and `docker-compose` are required. To run the application, use the command
+```shell
+$ docker compose up
+```
+This will serve the application with every required component and afterwards, the application will be accessible from `localhost:3000`.
+There was a dummy authentication set up, so a login would be required to use the application.
+The credentials are as follows
+```bash
+$ username == user@gmail.com
+$ password == password
+```
+There is also an integrated swagger documentation which can be reached at `http://localhost/swagger/index.html#/`.
+
