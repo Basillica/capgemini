@@ -6,7 +6,7 @@ import Modal from '../../components/Modal'
 import styles from './movies.module.css'; 
 import { movieApi, getMovie, getMovies, addMovie, filterMovies, moviesList } from "./moviestore";
 import { useAppSelector, useAppDispatch } from './../../app/hooks'
-import { Movie } from "./movie";
+import { Movie } from "./model";
 import { Navigate } from "react-router-dom";
 import { MovieForm } from './movieForm'
 

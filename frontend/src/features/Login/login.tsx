@@ -6,7 +6,8 @@ import Input from '../../components/Input'
 import { Navigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from './../../app/hooks'
 import { login, selectUser, loginUser } from './userStore'
-
+import { ActionCreatorWithPayload} from "@reduxjs/toolkit";
+import { User } from "./model";
 
 type Errors = {
   username?: string;
@@ -63,7 +64,7 @@ const validator = (values: {username: string, password: string}): Errors => {
 }
 
 
-const useForm = (callback: any, validate: any, dispatch: any) => {
+const useForm = (callback: ActionCreatorWithPayload<User, "user/login">, validate: any, dispatch: any) => {
   const [values, setValues] = useState({username: "", password: ""});
   const [errors, setErrors] = useState({
     username: "", password: ""
@@ -73,7 +74,7 @@ const useForm = (callback: any, validate: any, dispatch: any) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
+      callback({username: values.username, password: values.password});
     }
   }, [errors]);
 

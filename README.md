@@ -17,6 +17,7 @@ The credentials are as follows
 $ username == user@gmail.com
 $ password == password
 ```
+There are some restrictions put in place to regulate the type of data coming in from the client which can be found here `https://github.com/Basillica/capgemini/blob/main/backend/types/requests/auth.go`. A very simple one would be that the lenght of the title be longer than `6` charaters.
 There is also an integrated swagger documentation which can be reached at `http://localhost/swagger/index.html#/`.
 
 ## Suggestions for improvement

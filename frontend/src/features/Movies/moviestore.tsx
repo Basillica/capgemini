@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import axios, {AxiosRequestConfig} from "axios";
-import { Movie } from "./movie";
+import { Movie } from "./model";
 import { RootState } from "../../app/store";
 
 const API_URL = process.env.API_URL || "http://localhost:80";
@@ -45,9 +45,7 @@ export const movieApi = createApi({
                 'authorization': `Bearer ${initialState?.token?.token}`,
             }
         }),
-        // Pick out data and prevent nested properties in a hook or selector
         transformResponse: (response: any) => response?.result,
-        // Pick out error and prevent nested properties in a hook or selector
         transformErrorResponse: (response: any) => response?.error,
       }),
 
@@ -58,9 +56,7 @@ export const movieApi = createApi({
                 'authorization': `Bearer ${initialState?.token?.token}`,
             }
         }),
-        // Pick out data and prevent nested properties in a hook or selector
         transformResponse: (response: any) => response?.result,
-        // Pick out error and prevent nested properties in a hook or selector
         transformErrorResponse: (response: any) => response?.error,
       }),
 
@@ -71,9 +67,7 @@ export const movieApi = createApi({
                 'authorization': `Bearer ${initialState?.token?.token}`,
             }
         }),
-        // Pick out data and prevent nested properties in a hook or selector
         transformResponse: (response: any) => response?.result,
-        // Pick out error and prevent nested properties in a hook or selector
         transformErrorResponse: (response: any) => response?.error,
       }),
     }),

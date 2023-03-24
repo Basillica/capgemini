@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk, ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import axios from "axios";
-import { User } from "./user";
+import { User } from "./model";
 import { RootState } from "../../app/store";
 
 const API_URL = process.env.API_URL || "http://localhost:80";
