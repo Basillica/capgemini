@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    restart: always
+    expose:
+      - "8080"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    env_file:
+      - ./.env/.env.dev
+    deploy:
+      mode: replicated
+      replicas: 1
+    networks:
+      - capgemini-network
+
+  nginx:
+    build: nginx/
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    deploy:
+      mode: replicated
+      replicas: 1
+    volumes:
+        - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./nginx/error:/etc/nginx/sites-enabled/default:ro
+    depends_on:
+        - backend
+    networks:
+      - capgemini-network
+
+  mongo:
+    image: mongo:latest
+    container_name: 'mongo'
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: mydb
+    networks:
+      - capgemini-network
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    links:
+      - backend
+    environment:
+      - API_URL="http://localhost:80"
+    deploy:
+      mode: replicated
+      replicas: 1
+    networks:
+      - capgemini-network
+
+networks:
+  capgemini-network:

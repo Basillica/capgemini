@@ -1,0 +1,106 @@
+.login_form{
+  display: grid;
+  background: white;
+  padding: 60px !important;
+  font-size: 1vw;
+  display: inline-block; 
+  vertical-align: top;
+}
+
+input{
+  margin-bottom: 30px;
+}
+
+.login_box{
+  text-align: center;
+  height: 60vh;
+  margin: auto;
+  width: 50vw;
+  position: relative;
+  background-color: gray;
+}
+.container{
+  width: 70% !important;
+}
+  
+  
+.background{
+  background: linear-gradient(to right, #f2709c, #ff9472);
+  width: 100vw;
+  height: 100vh;
+}
+
+button.mt-3.mb-3.px-auto.text-center {
+  font-weight: 500;
+  text-align: center;
+  padding: 0 110px !important;
+  font-size: 18px !important;
+}
+
+p{
+  color: #969696;
+}
+
+.btn{
+  background-color: #013142 !important;
+  font-weight: 500 !important;
+  letter-spacing: .3px;
+  height: 50px;
+  width: 100%;
+  font-size: medium;
+}
+
+.mobile_img{
+  display: grid;
+}
+
+.left_background{
+  background-color: #013142;
+  color: white;
+  padding: 40px!important;
+  padding-bottom: 0 !important;
+  border-radius: 10px 0 0 10px;
+}
+  
+@media only screen and (max-width: 425px) {
+  form{
+    width: 66vw;
+  }
+}
+
+.login_form{
+  padding: 65px !important;
+  font-size: .8rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.email{
+  color: orange;
+}
+
+.left_background{
+  padding: 20px !important;
+  padding-bottom: 0 !important;
+}
+
+.btn{
+  font-size: 14px !important;
+}
+
+.login_button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: yellow;
+  margin-top: 20%;
+  padding: 12px 62px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 40%;
+}
+
+.error{
+  color: red;
+  /* font-weight: bold; */
+  font-size: small;
+}

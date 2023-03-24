@@ -1,0 +1,5 @@
+# node modules
+frontend/node_modules/
+
+# backend binary
+backend/capgemini-backend

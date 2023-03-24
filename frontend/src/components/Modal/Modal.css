@@ -1,0 +1,43 @@
+.modal-overlay{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(43, 44, 37, 0.7);
+    z-index: 999;
+}
+
+.modal-box {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 20%;
+    top: 20%;
+    overflow: auto;
+    background-color: #fff;
+    -webkit-transform: translate(-50,-50%);
+    transform: translate(-50,-50%);
+    border-radius: 5%;
+}
+
+@media screen and (min-width: 992px) {
+    .modal.modal-content {
+        max-width: 200px;
+        max-height: 80%;
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 991) {
+    .modal.modal-content {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .modal.modal-content {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

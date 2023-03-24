@@ -1,0 +1,20 @@
+.input {
+    margin: 5px;
+}
+.input label {
+    font: 15px Helvetica, Arial, sans-serif;
+}
+.input input {
+    margin: 5px;
+    border: solid thin;
+    align-items: center;
+    text-align: center;
+}
+
+.text_input{
+    padding: 4%;
+}
+
+.label{
+    color: gray;
+}

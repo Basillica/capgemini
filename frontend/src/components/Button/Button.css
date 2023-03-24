@@ -1,0 +1,14 @@
+.btn {
+    padding: 10px;
+    margin: 15px;
+    font: 15px Helvetica, Arial, sans-serif;
+    text-align: center;
+    width: 10vw;
+    height: 4vh;
+    background-color: #dbf2ed;
+    cursor: pointer;
+    border-radius: 0.6rem;
+}
+.btn:hover {
+    background-color: #c5e2dc;
+}

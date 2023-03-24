@@ -1,0 +1,240 @@
+basePath: /api
+definitions:
+  requests.LoginRequest:
+    properties:
+      email:
+        maxLength: 100
+        minLength: 6
+        type: string
+      password:
+        maxLength: 100
+        minLength: 6
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  requests.Movie:
+    properties:
+      characters:
+        items:
+          type: string
+        type: array
+      created:
+        type: string
+      director:
+        type: string
+      edited:
+        type: string
+      episode_id:
+        type: integer
+      id:
+        type: string
+      opening_crawl:
+        type: string
+      planets:
+        items:
+          type: string
+        type: array
+      producer:
+        type: string
+      release_date:
+        type: string
+      species:
+        items:
+          type: string
+        type: array
+      starships:
+        items:
+          type: string
+        type: array
+      title:
+        maxLength: 100
+        minLength: 6
+        type: string
+      url:
+        type: string
+      vehicles:
+        items:
+          type: string
+        type: array
+    required:
+    - characters
+    - director
+    - episode_id
+    - opening_crawl
+    - planets
+    - producer
+    - release_date
+    - species
+    - starships
+    - title
+    - vehicles
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: Backend documentation
+    url: http://www.swagger.io/support
+  description: The api documentation of the core apis of the backend.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Backend api documentation
+  version: 1.0.0
+paths:
+  /filter/:title:
+    post:
+      consumes:
+      - application/json
+      description: Endpoint to filter movies by title
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "status: authorized\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: filter movies by title
+      tags:
+      - movie
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: login endpoint for the registered user
+      parameters:
+      - description: login request
+        in: body
+        name: loginRequest
+        required: true
+        schema:
+          $ref: '#/definitions/requests.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "token: some really long token\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: login as a user
+      tags:
+      - auth
+  /movie:
+    post:
+      consumes:
+      - application/json
+      description: endpoint to add a movie
+      parameters:
+      - description: profile swipe request
+        in: body
+        name: addMovie
+        required: true
+        schema:
+          $ref: '#/definitions/requests.Movie'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "status: authorized\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: add a movie
+      tags:
+      - movie
+  /movie/:id:
+    get:
+      consumes:
+      - application/json
+      description: endpoinnt to fetch a movie by its id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "status: authorized\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: fetch a move by id
+      tags:
+      - movie
+  /movies:
+    get:
+      consumes:
+      - application/json
+      description: endpoint to fetch movies from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "status: authorized\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: fetch movies from the database
+      tags:
+      - movie
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
